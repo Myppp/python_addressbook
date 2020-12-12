@@ -15,7 +15,7 @@ class AddContact(unittest.TestCase):
         wd = self.wd
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
-        self.test_add_contact(wd, Contact(firstname="Dmitriy", lastname="Belkin", address="Moscow", mobile="+79999999999", email="demetrius.belkin@gmail.com"))
+        self.add_contact(wd, Contact(firstname="Dmitriy", lastname="Belkin", address="Moscow", mobile="+79999999999", email="demetrius.belkin@gmail.com"))
         self.return_to_home_page(wd)
         self.logout(wd)
 
@@ -23,7 +23,7 @@ class AddContact(unittest.TestCase):
         wd = self.wd
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
-        self.test_add_contact(wd, Contact(firstname="", lastname="", address="", mobile="", email=""))
+        self.add_contact(wd, Contact(firstname="", lastname="", address="", mobile="", email=""))
         self.return_to_home_page(wd)
         self.logout(wd)
 
@@ -35,7 +35,7 @@ class AddContact(unittest.TestCase):
         # return to home page
         wd.find_element_by_link_text("home").click()
 
-    def test_add_contact(self, wd, contact):
+    def add_contact(self, wd, contact):
         # test add contact
         wd.find_element_by_link_text("add new").click()
         wd.find_element_by_name("firstname").click()
