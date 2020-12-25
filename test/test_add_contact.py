@@ -12,15 +12,15 @@ def app(request):
 
 
 def test_contact(app):
-    app.login(username="admin", password="secret")
+    app.session.login(username="admin", password="secret")
     app.add_contact(Contact(firstname="Dmitriy", lastname="Belkin", address="Moscow", mobile="+79999999999", email="demetrius.belkin@gmail.com"))
     app.return_to_home_page()
-    app.logout()
+    app.session.logout()
 
 
 def test_empty_contact(app):
-    app.login(username="admin", password="secret")
+    app.session.login(username="admin", password="secret")
     app.add_contact(Contact(firstname="", lastname="", address="", mobile="", email=""))
     app.return_to_home_page()
-    app.logout()
+    app.session.logout()
 
