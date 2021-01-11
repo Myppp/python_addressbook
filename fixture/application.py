@@ -8,19 +8,19 @@ class Application:
 
     def __init__(self):
         self.wd = webdriver.Firefox()
-        self.wd.implicitly_wait(30)
+        self.wd.implicitly_wait(3)
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
         self.contact = ContactHelper(self)
 
-    # Contact
-    def logout(self):
-        # logout
-        wd = self.wd
-        wd.find_element_by_link_text("Logout").click()
+    def is_valid(self):
+        try:
+            self.wd.current_url
+            return True
+        except:
+            return False
 
     def open_home_page(self):
-        # open home page
         wd = self.wd
         wd.get("http://localhost/addressbook/")
 
