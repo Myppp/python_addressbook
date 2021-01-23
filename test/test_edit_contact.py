@@ -7,27 +7,14 @@ def test_edit_some_contact(app):
         app.contact.create(Contact(firstname="test"))
     old_contacts = app.contact.get_contact_list()
     index = randrange(len(old_contacts))
-    contact = Contact(firstname="EditedName", middlename="EditedMiddleName",
-                                           lastname="EditedLastname", mobilephone="+7779991234")
+    contact = Contact(firstname="EditedName", middlename="EditedMiddleName", lastname="EditedLastname",
+                      address="Россия, г.Москва", address2="Узбекистан, г.Ташкент",
+                      email="email@mail.ru", email2="email2@mail.ru", email3="email3@mail.ru",
+                      homephone="+7989891234", mobilephone="+7779991234", workphone="+9999991234",
+                      secondaryphone="+7989991234")
     contact.id = old_contacts[index].id
     app.contact.edit_contact_by_index(index, contact)
     assert len(old_contacts) == app.contact.count()
     new_contacts = app.contact.get_contact_list()
     old_contacts[index] = contact
     assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
-
-#def test_edit_first_contact_firstname(app):
-#    if app.contact.count() == 0:
-#        app.contact.create(Contact(firstname="test"))
-#    old_contacts = app.contact.get_contact_list()
-#    app.contact.edit_first_contact(Contact(firstname="testfirstname3"))
-#    new_contacts = app.contact.get_contact_list()
-#    assert len(old_contacts) == len(new_contacts)
-
-#def test_edit_first_contact_middlename(app):
-#    if app.contact.count() == 0:
-#        app.contact.create(Contact(firstname="test"))
-#    old_contacts = app.contact.get_contact_list()
-#    app.contact.edit_first_contact(Contact(middlename="testmiddlename4"))
-#    new_contacts = app.contact.get_contact_list()
-#    assert len(old_contacts) == len(new_contacts)
