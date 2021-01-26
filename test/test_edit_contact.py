@@ -7,11 +7,10 @@ def test_edit_some_contact(app):
         app.contact.create(Contact(firstname="test"))
     old_contacts = app.contact.get_contact_list()
     index = randrange(len(old_contacts))
-    contact = Contact(firstname="EditedName", middlename="EditedMiddleName", lastname="EditedLastname",
-                      address="Россия, г.Москва", address2="Узбекистан, г.Ташкент",
-                      email="email@mail.ru", email2="email2@mail.ru", email3="email3@mail.ru",
-                      homephone="+7989891234", mobilephone="+7779991234", workphone="+9999991234",
-                      secondaryphone="+7989991234")
+    contact = Contact(firstname="testfirstname2", middlename="testmiddlename2", lastname="testlastname2",
+                      address="2 test address 1", address2="2 test address 2",
+                      email="2email@mail.ru", email2="2email2@mail.ru", email3="2email3@mail.ru",
+                      homephone="72000000000", mobilephone="72000000001", workphone="72000000002", secondaryphone="72000000003")
     contact.id = old_contacts[index].id
     app.contact.edit_contact_by_index(index, contact)
     assert len(old_contacts) == app.contact.count()
