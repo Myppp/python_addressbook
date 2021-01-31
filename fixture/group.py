@@ -1,3 +1,4 @@
+from selenium.webdriver.support.select import Select
 from model.group import Group
 
 

@@ -1,5 +1,8 @@
+from selenium.webdriver.support.select import Select
+from fixture.orm import ORMFixture
 from model.contact import Contact
 import re
+from selenium.webdriver.common.by import By
 
 
 class ContactHelper:
@@ -97,6 +100,22 @@ class ContactHelper:
         return len(wd.find_elements_by_name("selected[]"))
 
     contact_cache = None
+
+    def count(self):
+        wd = self.app.wd
+        self.return_to_home_page()
+        return len(wd.find_elements_by_name("selected[]"))
+
+    def count_contacts_in_group(self):
+        wd = self.app.wd
+        self.return_to_home_page()
+        self.select_none()
+        return len(wd.find_elements_by_name("selected[]"))
+
+    def count_contacts_not_in_group(self):
+        wd = self.app.wd
+        self.return_to_home_page()
+        return len(wd.find_elements_by_name("selected[]"))
 
     def get_contact_list(self):
         if self.contact_cache is None:
