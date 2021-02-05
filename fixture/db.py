@@ -10,7 +10,7 @@ class DbFixture:
         self.name = name
         self.user = user
         self.password = password
-        self.connection = pymysql.connect(host=host, database=name, user=user, password=password, autocommit=True)
+        self.connection = connection = pymysql.connect(host=host, database=name, user=user, password=password, autocommit=True)
 
     def get_group_list(self):
         list = []
@@ -28,28 +28,57 @@ class DbFixture:
         list = []
         cursor = self.connection.cursor()
         try:
-            cursor.execute("select id, firstname, lastname, middlename, address, address2, email, email2, email3, "
-                           "homephone, mobilephone, workphone, secondaryphone from addressbook where "
-                           "deprecated='0000-00-00 00:00:00'")
+            cursor.execute("select id, firstname, lastname, address, home, mobile, work, email, email2, email3, "
+                           "phone2 from addressbook where deprecated='0000-00-00 00:00:00'")
             for row in cursor:
-                (id, firstname, lastname, middlename, address, address2, email, email2, email3, homephone, mobilephone,
-                 workphone, secondaryphone) = row
-                list.append(Contact(id=str(id), firstname=firstname, lastname=lastname, middlename=middlename,
-                                    address=address, address2=address2, email=email, email2=email2, email3=email3,
-                                    homephone=homephone, mobilephone=mobilephone,
-                 workphone=workphone, secondaryphone=secondaryphone))
+                (id, firstname, lastname, address, home, mobile, work, email, email2, email3, phone2) = row
+                list.append(Contact(id=str(id), firstname=firstname, lastname=lastname, address=address, homephone=home,
+                                    mobilephone=mobile, workphone=work, email=email, email2=email2, email3=email3, secondaryphone=phone2))
         finally:
             cursor.close()
         return list
 
-    def get_groups_contact_list(self):
+    def get_contacts_not_in_group(self):
         list = []
         cursor = self.connection.cursor()
         try:
-            cursor.execute("select id from address_in_groups where group_id='308'")
+            cursor.execute("select a.id, a.firstname, a.lastname, a.address, a.home, a.mobile, a.work, a.email, "
+                           "a.email2, a.email3, a.phone2 from addressbook a left join address_in_groups ag on "
+                           "ag.id=a.id where ag.id is null")
             for row in cursor:
-                (id) = row
-                list.append(Contact(id=str(id)))
+                (id, firstname, lastname, address, home, mobile, work, email, email2, email3, phone2) = row
+                list.append(Contact(id=str(id), firstname=firstname, lastname=lastname, address=address, homephone=home,
+                                    mobilephone=mobile, workphone=work, email=email, email2=email2, email3=email3,
+                                    secondaryphone=phone2))
+        finally:
+            cursor.close()
+        return list
+
+    def get_contacts_in_group(self):
+        list = []
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute("select distinct (a.id), a.firstname, a.lastname, a.address, a.home, a.mobile, a.work, "
+                           "a.email, a.email2, a.email3, a.phone2 from addressbook a inner join address_in_groups ag "
+                           "on ag.id=a.id")
+            for row in cursor:
+                (id, firstname, lastname, address, home, mobile, work, email, email2, email3, phone2) = row
+                list.append(Contact(id=str(id), firstname=firstname, lastname=lastname, address=address, homephone=home,
+                                    mobilephone=mobile, workphone=work, email=email, email2=email2, email3=email3,
+                                    secondaryphone=phone2))
+        finally:
+            cursor.close()
+        return list
+
+    def get_groups_with_contacts(self):
+        list = []
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute("select gl.group_id, gl.group_name, gl.group_header, gl.group_footer from group_list gl "
+                           "join address_in_groups ag on ag.group_id = gl.group_id join addressbook ab on ab.id=ag.id")
+            for row in cursor:
+                (id, name, header, footer) = row
+                list.append(Group(id=str(id), name=name, header=header, footer=footer))
         finally:
             cursor.close()
         return list

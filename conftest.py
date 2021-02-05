@@ -24,7 +24,7 @@ def load_config(file):
 def app(request):
     global fixture
     browser = request.config.getoption("--browser")
-    web_config = load_config(request.config.getoption("--target"))['web']
+    web_config = load_config(request.config.getoption("--target"))["web"]
     if fixture is None or not fixture.is_valid():
         fixture = Application(browser=browser, base_url=web_config['baseUrl'])
     fixture.session.ensure_login(username=web_config['username'], password=web_config['password'])
@@ -32,26 +32,21 @@ def app(request):
 
 
 @pytest.fixture(scope="session")
+def orm(request):
+    db_config = load_config(request.config.getoption("--target"))["db"]
+    orm_fixture = ORMFixture(host=db_config["host"], name=db_config["name"],
+                             user=db_config["user"], password=db_config["password"])
+    return orm_fixture
+
+
+@pytest.fixture(scope="session", autouse=True)
 def db(request):
-    db_config = load_config(request.config.getoption("--target"))['db']
-    dbfixture = DbFixture(host=db_config['host'], name=db_config['name'], user=db_config['user'],
-                          password=db_config['password'])
-
-    def fin():
+    db_config = load_config(request.config.getoption("--target"))["db"]
+    dbfixture = DbFixture(host=db_config['host'], name=db_config['name'], user=db_config['user'], password=db_config['password'])
+    def fin ():
         dbfixture.destroy()
-
     request.addfinalizer(fin)
     return dbfixture
-
-
-#@pytest.fixture(scope="session", autouse=True)
-#def orm(request):
-    #orm_config = load_config(request.config.getoption("--target"))['db']
-    #ormfixture = ORMFixture(host=orm_config['host'], name=orm_config['name'], user=orm_config['user'], password=orm_config['password'])
-    #def fin():
-        #ormfixture.destroy()
-    #request.addfinalizer(fin)
-    #return ormfixture
 
 
 @pytest.fixture(scope="session", autouse=True)
@@ -59,7 +54,6 @@ def stop(request):
     def fin():
         fixture.session.ensure_logout()
         fixture.destroy()
-
     request.addfinalizer(fin)
     return fixture
 
