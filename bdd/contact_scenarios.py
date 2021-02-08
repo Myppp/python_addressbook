@@ -3,15 +3,15 @@ from .contact_steps import *
 
 
 @scenario("contacts.feature", "Add new contact")
-def test_add_new_contact():
+def test_add_contact():
     pass
 
 
 @scenario("contacts.feature", "Delete a contact")
-def test_delete_contact():
+def test_del_contact():
     pass
 
 
 @scenario("contacts.feature", "Modify a contact")
-def test_modify_contact():
+def test_edit_contact():
     pass
