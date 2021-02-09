@@ -1,0 +1,73 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "AssertionError: assert [2:::, 3:::, ...j, 12:::, ...] == [2:::, 3:::, ...j, 12:::, ...]\n  Left contains one more item: None:name':header:footerI#X\n  Use -v to get the full diff",
+      "children" : [ {
+        "name" : "test_add_group[None:name':header:footerI#X]",
+        "uid" : "397d2c0035e95188",
+        "parentUid" : "d543f779745a8d73f160f8d5c05a21b6",
+        "status" : "failed",
+        "time" : {
+          "start" : 1612873328973,
+          "stop" : 1612873332381,
+          "duration" : 3408
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "None:name':header:footerI#X" ]
+      } ],
+      "uid" : "d543f779745a8d73f160f8d5c05a21b6"
+    }, {
+      "name" : "AssertionError: assert [2:::, 3:::, ...j, 12:::, ...] == [2:::, 3:::, ...j, 12:::, ...]\n  Left contains one more item: None:name3 3UZE:header':footer 6$HY 9 LkudEQzf7E\n  Use -v to get the full diff",
+      "children" : [ {
+        "name" : "test_add_group[None:name3 3UZE:header':footer 6$HY 9 LkudEQzf7E]",
+        "uid" : "a5255e20791a5754",
+        "parentUid" : "033ee7032217e10ee1188e169a6e11a8",
+        "status" : "failed",
+        "time" : {
+          "start" : 1612873349706,
+          "stop" : 1612873353140,
+          "duration" : 3434
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "None:name3 3UZE:header':footer 6$HY 9 LkudEQzf7E" ]
+      } ],
+      "uid" : "033ee7032217e10ee1188e169a6e11a8"
+    }, {
+      "name" : "AssertionError: assert (67 + 1) == 67\n +  where 67 = len([23:::None:None:None, 59:::None:None:None, 71:::None:None:None, 75:::None:None:None, 79:::None:None:None, 83:::None:None:None, ...])\n +  and   67 = <bound method ContactHelper.count of <fixture.contact.ContactHelper object at 0x0000014DD1830370>>()\n +    where <bound method ContactHelper.count of <fixture.contact.ContactHelper object at 0x0000014DD1830370>> = <fixture.contact.ContactHelper object at 0x0000014DD1830370>.count\n +      where <fixture.contact.ContactHelper object at 0x0000014DD1830370> = <fixture.application.Application object at 0x0000014DD1813340>.contact",
+      "children" : [ {
+        "name" : "test_add_contact[None:firstnamewEPM=Y}V:lastnameFd:middlename:1@1.,R:7@t]",
+        "uid" : "6a039baad0788937",
+        "parentUid" : "bff5b2f2540bb2c3e86a412693e6597b",
+        "status" : "failed",
+        "time" : {
+          "start" : 1612880527269,
+          "stop" : 1612880528669,
+          "duration" : 1400
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "None:firstnamewEPM=Y}V:lastnameFd:middlename:1@1.,R:7@t" ]
+      }, {
+        "name" : "test_add_contact[None:firstnamem6I0s*:lastnameVk:middlenamec\\Kf\\n Y<4mEX :1@1.ySw:m?}:7&$98]",
+        "uid" : "132ed6f620cec671",
+        "parentUid" : "bff5b2f2540bb2c3e86a412693e6597b",
+        "status" : "failed",
+        "time" : {
+          "start" : 1612880528860,
+          "stop" : 1612880533849,
+          "duration" : 4989
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "None:firstnamem6I0s*:lastnameVk:middlenamec\\Kf\\n Y<4mEX :1@1.ySw:m?}:7&$98" ]
+      } ],
+      "uid" : "bff5b2f2540bb2c3e86a412693e6597b"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  } ]
+}

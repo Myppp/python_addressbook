@@ -1,0 +1,205 @@
+{
+  "uid" : "a5255e20791a5754",
+  "name" : "test_add_group[None:name3 3UZE:header':footer 6$HY 9 LkudEQzf7E]",
+  "fullName" : "test.test_add_group#test_add_group",
+  "historyId" : "4cdfe3ecf7e8f124a13dad7557fb07c4",
+  "time" : {
+    "start" : 1612873349706,
+    "stop" : 1612873353140,
+    "duration" : 3434
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert [2:::, 3:::, ...j, 12:::, ...] == [2:::, 3:::, ...j, 12:::, ...]\n  Left contains one more item: None:name3 3UZE:header':footer 6$HY 9 LkudEQzf7E\n  Use -v to get the full diff",
+  "statusTrace" : "app = <fixture.application.Application object at 0x000001574BD1A580>, db = <fixture.db.DbFixture object at 0x000001574BD1A160>, json_groups = None:name3 3UZE:header':footer 6$HY 9 LkudEQzf7E\n\n    def test_add_group(app, db, json_groups):\n        group = json_groups\n        with allure.step('Given a group list'):\n            old_groups = db.get_group_list()\n        with allure.step('When I add a group %s to the list' % group):\n            app.group.create(group)\n        with allure.step('Then the new group list is equal to the old list with the added group'):\n            new_groups = db.get_group_list()\n            old_groups.append(group)\n>           assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)\nE           AssertionError: assert [2:::, 3:::, ...j, 12:::, ...] == [2:::, 3:::, ...j, 12:::, ...]\nE             Left contains one more item: None:name3 3UZE:header':footer 6$HY 9 LkudEQzf7E\nE             Use -v to get the full diff\n\ntest\\test_add_group.py:15: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "app",
+    "time" : {
+      "start" : 1612873349687,
+      "stop" : 1612873349706,
+      "duration" : 19
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "db",
+    "time" : {
+      "start" : 1612873310342,
+      "stop" : 1612873310348,
+      "duration" : 6
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "stop",
+    "time" : {
+      "start" : 1612873310349,
+      "stop" : 1612873310349,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "failed",
+    "statusMessage" : "AssertionError: assert [2:::, 3:::, ...j, 12:::, ...] == [2:::, 3:::, ...j, 12:::, ...]\n  Left contains one more item: None:name3 3UZE:header':footer 6$HY 9 LkudEQzf7E\n  Use -v to get the full diff",
+    "statusTrace" : "app = <fixture.application.Application object at 0x000001574BD1A580>, db = <fixture.db.DbFixture object at 0x000001574BD1A160>, json_groups = None:name3 3UZE:header':footer 6$HY 9 LkudEQzf7E\n\n    def test_add_group(app, db, json_groups):\n        group = json_groups\n        with allure.step('Given a group list'):\n            old_groups = db.get_group_list()\n        with allure.step('When I add a group %s to the list' % group):\n            app.group.create(group)\n        with allure.step('Then the new group list is equal to the old list with the added group'):\n            new_groups = db.get_group_list()\n            old_groups.append(group)\n>           assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)\nE           AssertionError: assert [2:::, 3:::, ...j, 12:::, ...] == [2:::, 3:::, ...j, 12:::, ...]\nE             Left contains one more item: None:name3 3UZE:header':footer 6$HY 9 LkudEQzf7E\nE             Use -v to get the full diff\n\ntest\\test_add_group.py:15: AssertionError",
+    "steps" : [ {
+      "name" : "Given a group list",
+      "time" : {
+        "start" : 1612873349707,
+        "stop" : 1612873349708,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : false,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "When I add a group None:name3 3UZE:header':footer 6$HY 9 LkudEQzf7E to the list",
+      "time" : {
+        "start" : 1612873349708,
+        "stop" : 1612873353138,
+        "duration" : 3430
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : false,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Then the new group list is equal to the old list with the added group",
+      "time" : {
+        "start" : 1612873353138,
+        "stop" : 1612873353140,
+        "duration" : 2
+      },
+      "status" : "failed",
+      "statusMessage" : "AssertionError: assert [2:::, 3:::, ...j, 12:::, ...] == [2:::, 3:::, ...j, 12:::, ...]\n  Left contains one more item: None:name3 3UZE:header':footer 6$HY 9 LkudEQzf7E\n  Use -v to get the full diff\n",
+      "statusTrace" : "  File \"C:\\Users\\demet\\PycharmProjects\\python_training\\test\\test_add_group.py\", line 15, in test_add_group\n    assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)\n",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : true,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "hasContent" : true,
+    "shouldDisplayMessage" : true,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ {
+    "name" : "db::fin",
+    "time" : {
+      "start" : 1612873355391,
+      "stop" : 1612873355391,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "stop::fin",
+    "time" : {
+      "start" : 1612873353152,
+      "stop" : 1612873355390,
+      "duration" : 2238
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test"
+  }, {
+    "name" : "suite",
+    "value" : "test_add_group"
+  }, {
+    "name" : "host",
+    "value" : "H1d3Me"
+  }, {
+    "name" : "thread",
+    "value" : "20116-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test.test_add_group"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "json_groups",
+    "value" : "None:name3 3UZE:header':footer 6$HY 9 LkudEQzf7E"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "40dc6d4b28245913",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: assert [2:::, 3:::, ...j, 12:::, ...] == [2:::, 3:::, ...j, 12:::, ...]\n  Left contains one more item: None:name3 3UZE:header':footer 6$HY 9 LkudEQzf7E\n  Use -v to get the full diff",
+      "time" : {
+        "start" : 1612871900620,
+        "stop" : 1612871904063,
+        "duration" : 3443
+      }
+    } ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "a5255e20791a5754.json",
+  "parameterValues" : [ "None:name3 3UZE:header':footer 6$HY 9 LkudEQzf7E" ]
+}

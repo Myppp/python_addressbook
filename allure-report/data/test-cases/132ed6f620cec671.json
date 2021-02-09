@@ -1,0 +1,205 @@
+{
+  "uid" : "132ed6f620cec671",
+  "name" : "test_add_contact[None:firstnamem6I0s*:lastnameVk:middlenamec\\Kf\\n Y<4mEX :1@1.ySw:m?}:7&$98]",
+  "fullName" : "test.test_add_contact#test_add_contact",
+  "historyId" : "360ce9d8c4334970563dfee5635bc2e1",
+  "time" : {
+    "start" : 1612880528860,
+    "stop" : 1612880533849,
+    "duration" : 4989
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert (67 + 1) == 67\n +  where 67 = len([23:::None:None:None, 59:::None:None:None, 71:::None:None:None, 75:::None:None:None, 79:::None:None:None, 83:::None:None:None, ...])\n +  and   67 = <bound method ContactHelper.count of <fixture.contact.ContactHelper object at 0x0000014DD1830370>>()\n +    where <bound method ContactHelper.count of <fixture.contact.ContactHelper object at 0x0000014DD1830370>> = <fixture.contact.ContactHelper object at 0x0000014DD1830370>.count\n +      where <fixture.contact.ContactHelper object at 0x0000014DD1830370> = <fixture.application.Application object at 0x0000014DD1813340>.contact",
+  "statusTrace" : "app = <fixture.application.Application object at 0x0000014DD1813340>, json_contacts = None:firstnamem6I0s*:lastnameVk:middlenamec\\Kf\\n Y<4mEX :1@1.ySw:m?}:7&$98\n\n    def test_add_contact(app, json_contacts):\n        contact = json_contacts\n        with allure.step('Given a contact list'):\n            old_contacts = app.contact.get_contact_list()\n        with allure.step('When I add the contact %s to the list' % contact):\n            app.contact.create(contact)\n        with allure.step('Then the new contact list is equal to the old list with the added contact'):\n>           assert len(old_contacts) + 1 == app.contact.count()\nE           assert (67 + 1) == 67\nE            +  where 67 = len([23:::None:None:None, 59:::None:None:None, 71:::None:None:None, 75:::None:None:None, 79:::None:None:None, 83:::None:None:None, ...])\nE            +  and   67 = <bound method ContactHelper.count of <fixture.contact.ContactHelper object at 0x0000014DD1830370>>()\nE            +    where <bound method ContactHelper.count of <fixture.contact.ContactHelper object at 0x0000014DD1830370>> = <fixture.contact.ContactHelper object at 0x0000014DD1830370>.count\nE            +      where <fixture.contact.ContactHelper object at 0x0000014DD1830370> = <fixture.application.Application object at 0x0000014DD1813340>.contact\n\ntest\\test_add_contact.py:13: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "db",
+    "time" : {
+      "start" : 1612880508322,
+      "stop" : 1612880508328,
+      "duration" : 6
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "app",
+    "time" : {
+      "start" : 1612880528763,
+      "stop" : 1612880528860,
+      "duration" : 97
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "stop",
+    "time" : {
+      "start" : 1612880508329,
+      "stop" : 1612880508329,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "failed",
+    "statusMessage" : "AssertionError: assert (67 + 1) == 67\n +  where 67 = len([23:::None:None:None, 59:::None:None:None, 71:::None:None:None, 75:::None:None:None, 79:::None:None:None, 83:::None:None:None, ...])\n +  and   67 = <bound method ContactHelper.count of <fixture.contact.ContactHelper object at 0x0000014DD1830370>>()\n +    where <bound method ContactHelper.count of <fixture.contact.ContactHelper object at 0x0000014DD1830370>> = <fixture.contact.ContactHelper object at 0x0000014DD1830370>.count\n +      where <fixture.contact.ContactHelper object at 0x0000014DD1830370> = <fixture.application.Application object at 0x0000014DD1813340>.contact",
+    "statusTrace" : "app = <fixture.application.Application object at 0x0000014DD1813340>, json_contacts = None:firstnamem6I0s*:lastnameVk:middlenamec\\Kf\\n Y<4mEX :1@1.ySw:m?}:7&$98\n\n    def test_add_contact(app, json_contacts):\n        contact = json_contacts\n        with allure.step('Given a contact list'):\n            old_contacts = app.contact.get_contact_list()\n        with allure.step('When I add the contact %s to the list' % contact):\n            app.contact.create(contact)\n        with allure.step('Then the new contact list is equal to the old list with the added contact'):\n>           assert len(old_contacts) + 1 == app.contact.count()\nE           assert (67 + 1) == 67\nE            +  where 67 = len([23:::None:None:None, 59:::None:None:None, 71:::None:None:None, 75:::None:None:None, 79:::None:None:None, 83:::None:None:None, ...])\nE            +  and   67 = <bound method ContactHelper.count of <fixture.contact.ContactHelper object at 0x0000014DD1830370>>()\nE            +    where <bound method ContactHelper.count of <fixture.contact.ContactHelper object at 0x0000014DD1830370>> = <fixture.contact.ContactHelper object at 0x0000014DD1830370>.count\nE            +      where <fixture.contact.ContactHelper object at 0x0000014DD1830370> = <fixture.application.Application object at 0x0000014DD1813340>.contact\n\ntest\\test_add_contact.py:13: AssertionError",
+    "steps" : [ {
+      "name" : "Given a contact list",
+      "time" : {
+        "start" : 1612880528860,
+        "stop" : 1612880532446,
+        "duration" : 3586
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : false,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "When I add the contact None:firstnamem6I0s*:lastnameVk:middlenamec\\Kf\\n Y<4mEX :1@1.ySw:m?}:7&$98 to the list",
+      "time" : {
+        "start" : 1612880532446,
+        "stop" : 1612880533837,
+        "duration" : 1391
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : false,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Then the new contact list is equal to the old list with the added contact",
+      "time" : {
+        "start" : 1612880533837,
+        "stop" : 1612880533849,
+        "duration" : 12
+      },
+      "status" : "failed",
+      "statusMessage" : "AssertionError: assert (67 + 1) == 67\n +  where 67 = len([23:::None:None:None, 59:::None:None:None, 71:::None:None:None, 75:::None:None:None, 79:::None:None:None, 83:::None:None:None, ...])\n +  and   67 = <bound method ContactHelper.count of <fixture.contact.ContactHelper object at 0x0000014DD1830370>>()\n +    where <bound method ContactHelper.count of <fixture.contact.ContactHelper object at 0x0000014DD1830370>> = <fixture.contact.ContactHelper object at 0x0000014DD1830370>.count\n +      where <fixture.contact.ContactHelper object at 0x0000014DD1830370> = <fixture.application.Application object at 0x0000014DD1813340>.contact\n",
+      "statusTrace" : "  File \"C:\\Users\\demet\\PycharmProjects\\python_training\\test\\test_add_contact.py\", line 13, in test_add_contact\n    assert len(old_contacts) + 1 == app.contact.count()\n",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : true,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "hasContent" : true,
+    "shouldDisplayMessage" : true,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ {
+    "name" : "db::fin",
+    "time" : {
+      "start" : 1612880550520,
+      "stop" : 1612880550520,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "stop::fin",
+    "time" : {
+      "start" : 1612880548198,
+      "stop" : 1612880550519,
+      "duration" : 2321
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test"
+  }, {
+    "name" : "suite",
+    "value" : "test_add_contact"
+  }, {
+    "name" : "host",
+    "value" : "H1d3Me"
+  }, {
+    "name" : "thread",
+    "value" : "5592-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test.test_add_contact"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "json_contacts",
+    "value" : "None:firstnamem6I0s*:lastnameVk:middlenamec\\Kf\\n Y<4mEX :1@1.ySw:m?}:7&$98"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "f81676a34f775dbb",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'Contact' object has no attribute 'group'",
+      "time" : {
+        "start" : 1612873566916,
+        "stop" : 1612873566916,
+        "duration" : 0
+      }
+    } ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "132ed6f620cec671.json",
+  "parameterValues" : [ "None:firstnamem6I0s*:lastnameVk:middlenamec\\Kf\\n Y<4mEX :1@1.ySw:m?}:7&$98" ]
+}
