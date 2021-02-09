@@ -75,12 +75,20 @@ class ContactHelper:
         self.return_to_home_page()
         self.contact_cache = None
 
-    def edit_contact_by_id(self, id, new_contact_data):
+    def edit_contact_by_id_tmp(self, id, new_contact_data):
         wd = self.app.wd
         self.open_contact_for_edit_by_id(id)
         # fill contact form
         self.fill_form(new_contact_data)
         # submit contact update
+        wd.find_element_by_name("update").click()
+        self.return_to_home_page()
+        self.contact_cache = None
+
+    def edit_contact_by_id(self, contact, id):
+        wd = self.app.wd
+        self.open_contact_for_edit_by_id(id)
+        self.fill_form(contact)
         wd.find_element_by_name("update").click()
         self.return_to_home_page()
         self.contact_cache = None
@@ -104,13 +112,15 @@ class ContactHelper:
         wd = self.app.wd
         self.app.open_home_page()
         Select(wd.find_element_by_xpath('//*[@id="right"]/select')).select_by_value(id)
-#       wd.find_element_by_xpath("//option[@value='%s']" % id).click()
+
+    #       wd.find_element_by_xpath("//option[@value='%s']" % id).click()
 
     def open_contact_list_not_in_group(self):
         wd = self.app.wd
         self.app.open_home_page()
         Select(wd.find_element_by_name("group")).select_by_visible_text("[none]")
-#       wd.find_element_by_xpath("//option[@value='none']").click()
+
+    #       wd.find_element_by_xpath("//option[@value='none']").click()
 
     def add_contact_in_group(self, contact_id, group_id):
         wd = self.app.wd
@@ -155,6 +165,27 @@ class ContactHelper:
 
     contact_cache = None
 
+    def check(self, db, contact):
+        if len(db.get_contact_list()) == 0:
+            self.create(contact)
+
+    def create_empty(self):
+        wd = self.app.wd
+        wd.find_element_by_link_text("add new").click()
+        wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
+        self.return_to_home_page()
+        self.contact_cache = None
+
+    def clean_spaces(self, contact):
+        return Contact(id=contact.id,
+                       firstname=contact.firstname.strip() if contact.firstname is not None else contact.firstname,
+                       lastname=contact.lastname.strip() if contact.lastname is not None else contact.lastname)
+
+    def ui_check(self, db, check_ui):
+        if check_ui:
+            assert sorted(map(self.clean_spaces, db.get_contact_list()), key=Contact.id_or_max) == \
+                   sorted(self.get_contact_list(), key=Contact.id_or_max)
+
     def get_contact_list(self):
         if self.contact_cache is None:
             wd = self.app.wd
@@ -169,7 +200,8 @@ class ContactHelper:
                 all_emails = cells[4].text
                 all_phones = cells[5].text
                 self.contact_cache.append(Contact(lastname=lastname, firstname=firstname, id=id, address=address,
-                                                  all_phones_from_home_page=all_phones, all_emails_from_home_page=all_emails))
+                                                  all_phones_from_home_page=all_phones,
+                                                  all_emails_from_home_page=all_emails))
         return list(self.contact_cache)
 
     def get_contact_info_from_edit_page(self, index):
